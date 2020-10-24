@@ -1,102 +1,55 @@
 import React from 'react';
-import './App.css';
-import ListItems from "./ListItems.js"
+import ListTodos from "./components/ListTodos"
+import AddTodos from "./components/AddTodos"
 import {library} from "@fortawesome/fontawesome-svg-core"
 import {faTrash} from "@fortawesome/free-solid-svg-icons"
 
 library.add(faTrash)
 
 class App extends React.Component{
-  constructor(props){
-    super(props)
-    this.state={
-      items: [],
-      currentItem: {
-        text: '',
-        key: ''
-      }
-    }
-    this.handleInput= this.handleInput.bind(this);
-    this.AddItem= this.AddItem.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
-    this.setUpdate = this.setUpdate.bind(this);
+  state={
+    todos: [ 
+      { id: '1', task: 'Go to school'},
+      {id: '2', task: 'Prep for exam'}
+    ]
   }
-  handleInput(event){
+
+  addTodos=(newTodo)=>{
+    const todos=[...this.state.todos, newTodo]
     this.setState({
-      currentItem:{
-        text: event.target.value,
-        key: Date.now()
-      }
+      todos
     })
 
   }
-  AddItem(event){
-    event.preventDefault();
-    const newItem=this.state.currentItem;
-    console.log(newItem)
-    let newItems
-    if(newItem.text !==""){
-      newItems= [...this.state.items, newItem];
-    }
-    //const newItems=[]
-    //if(newItem.text !==""){
-    //  newItems.push(newItem) ;
-    //}
-    this.setState({
-      items: newItems,
-      currentItem: {
-        text: "",
-        key: ""
-      }
-    })
-  }
-  deleteItem(key){
-    const filteredItems= this.state.items.filter(item =>
-      item.key!==key);
-    this.setState({
-      items: filteredItems
-    })
 
-  }
-  setUpdate(text, key){
-    console.log("items: " + this.state.items);
-    const items = this.state.items;
-    items.map(item=>{      
-      if(item.key===key){
-        console.log(item.key +"    "+key)
-        item.text= text;
-      }
+  deleteTodo=(id)=>{
+    const todos= this.state.todos.filter(todo => {
+      return todo.id !==id
     })
     this.setState({
-      items: items
+      todos
+    })
+  }
+  editTodo=(task, id)=>{
+    const todos = this.state.todos;
+    todos.map(todo=>{      
+      (todo.id===id) && (todo.task= task)
+    })
+    this.setState({
+      todos
     })
   }
   render(){
     return (
       <div className="App">
-        <header>
-        <form className="todo-form" onSubmit={this.AddItem}>
-        <input type="text" 
-        placeholder="Enter your task"
-        value={this.state.currentItem.text}
-        onChange={this.handleInput}>
+        <h1>5 Stack To do App</h1>
+        <ListTodos todos={this.state.todos} deleteTodo={this.deleteTodo} 
+        editTodo={this.editTodo} />
+        <AddTodos addTodos={this.addTodos} />
 
-        </input>
-        <button type="submit">Add</button>
-
-        </form>
-        
-        <p>{this.state.items.text}</p>
-      </header>
-      <ListItems items={this.state.items} deleteItem={this.deleteItem} 
-          setUpdate={this.setUpdate}>
-
-      </ListItems>
       </div>
     );
   }
-
-  
 }
 
 export default App;
