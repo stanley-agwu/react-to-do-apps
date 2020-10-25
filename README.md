@@ -1,15 +1,3 @@
-React-To-do-App
-
-This is a simple React to-do Application. It has been built using React Components, React Forms, Event listeners and handlers, React Flip Moves to add animations etc. It is an exciting application.
-
-Commands used to install Font awesome:
-
-$ npm i --save @fortawesome/fontawesome-svg-core
-
-$ npm i --save @fortawesome/free-solid-svg-icons
-
-$ npm i --save @fortawesome/react-fontawesome
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -78,4 +66,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-

@@ -1,5 +1,4 @@
 import React from "react"
-// import "./ListItems.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import FlipMove from "react-flip-move"
 
@@ -15,7 +14,7 @@ const ListTodos= ({todos, deleteTodo, editTodo}) => {
                 icon="trash" onClick={()=>deleteTodo(todo.id)} /></span></p>
             </div> 
         )} 
-        ) : <p> There are currently no tasks to be done.</p>
+        ) : <p className="no-items"> There are currently no tasks to be done.</p>
                
     return (
         <div>
