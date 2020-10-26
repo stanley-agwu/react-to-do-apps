@@ -32,8 +32,8 @@ class App extends React.Component{
   }
   editTodo=(task, id)=>{
     const todos = this.state.todos;
-    todos.map(todo=>{      
-      (todo.id===id) && (todo.task= task)
+    todos.map(todo=>{
+      return (todo.id===id) && (todo.task= task)
     })
     this.setState({
       todos

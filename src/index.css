@@ -26,6 +26,7 @@ code {
 .list{
   margin: 10px auto;
   width: 85%;
+  cursor: pointer;
 
 }
 .list p{
@@ -40,6 +41,10 @@ code {
   border: transparent;
   font-size: 1em;
   margin-right: 20px;
+}
+
+.list p input:focus{
+  outline: none;
 }
 .no-items{
   margin-left: 40px;
@@ -57,17 +62,21 @@ code {
   font-size: 1em;
   margin: 20px 0;
   border-radius: 2px;
-  padding: 5px;
+  padding: 10px;
   border: transparent;
 }
+.todo-form input:focus, .todo-form button:focus{
+  outline: none;
+}
 .todo-form button{
-  width: 360px;
-  max-width: 88%;
+  width: 370px;
+  max-width: 90%;
   margin-bottom: 30px;
-  height: 30px;
+  height: 40px;
   border-radius: 5px;
   border: transparent;
   font-size: 1em;
   font-weight: bold;
-  background-color: goldenrod;
+  background-color: #ff4da6;
+  cursor: pointer;
 }
