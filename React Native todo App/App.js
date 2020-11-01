@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, FlatList, Alert, 
-  TouchableWithoutFeedback, Keyboard } from 'react-native';
+  TouchableWithoutFeedback, Keyboard, Text } from 'react-native';
 import Header from './components/header';
 import TodoItem from './components/todoItems';
 import AddTodo from './components/addTodo';
@@ -36,7 +36,8 @@ export default function App() {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    todos.length ? (
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
         <Header />
         <View style={styles.content}>
@@ -52,6 +53,21 @@ export default function App() {
         </View>
       </View>
     </TouchableWithoutFeedback>
+    ) : (
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
+        <Header />
+        <View style={styles.content}>
+          <AddTodo submitHandler={submitHandler} />
+          <View style={styles.list}>
+            <Text>There are currently no to do task!</Text>
+          </View>
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
+      
+    )
+    
   );
 }
 
