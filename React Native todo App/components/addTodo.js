@@ -1,3 +1,4 @@
+import { setStatusBarNetworkActivityIndicatorVisible } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, Button } from 'react-native';
 
@@ -7,6 +8,10 @@ export default function AddTodo({ submitHandler }) {
   const changeHandler = (val) => {
     setText(val);
   };
+  const submit_ResetInput = ()=>{
+    submitHandler(text)
+    setText("")
+  }
 
   return (
     <View>
@@ -16,7 +21,7 @@ export default function AddTodo({ submitHandler }) {
         onChangeText={changeHandler} 
         value={text} 
       />
-      <Button color= '#9956c2' onPress={() => submitHandler(text)} title='add todo' />
+      <Button color= '#9956c2' onPress={submit_ResetInput} title='add todo' />
     </View>
   );
 }
