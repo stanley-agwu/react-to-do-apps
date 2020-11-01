@@ -54,11 +54,11 @@ export default function App() {
       </View>
     </TouchableWithoutFeedback>
     ) : (
-      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <TouchableWithoutFeedback >
       <View style={styles.container}>
         <Header />
         <View style={styles.content}>
-          <AddTodo submitHandler={submitHandler} />
+          <AddTodo />
           <View style={styles.list}>
             <Text>There are currently no to do task!</Text>
           </View>
