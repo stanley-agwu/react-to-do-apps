@@ -157,7 +157,7 @@ const TodoItem = ({ deleteItem, item, editItem }) => {
     const today = new Date()
     const selectedDate = new Date(date)
     const millsecondPerDay = 1000 * 60 * 60 * 24;
-    return Math.ceil((selectedDate.getTime() - today.getTime()) / millsecondPerDay)
+    return Math.floor((selectedDate.getTime() - today.getTime()) / millsecondPerDay)
   }
 
   const expirationsDays = daysDiff(item.dueDate)
