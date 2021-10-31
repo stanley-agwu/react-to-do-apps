@@ -65,6 +65,10 @@ const StyledTodoItem = styled.li`
     align-items: center;
     justify-content: center;
     background-color: ${({ theme }) => theme.lightGrey};
+    &:hover {
+      background: ${({ theme }) => theme.darkerGrey};
+      transition: 0.3s;
+    }
   }
 
   .main {
@@ -121,6 +125,10 @@ const StyledTodoItem = styled.li`
   }
   .due-date {
     background-color: ${({ theme }) => theme.OtherRed};
+    &:hover {
+      background: ${({ theme }) => theme.darkRed};
+      transition: 0.3s;
+    }
   }
   .priority {
     background-color: ${({ item, theme }) => {
