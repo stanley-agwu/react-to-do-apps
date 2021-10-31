@@ -25,7 +25,7 @@ const StyledTodo = styled.div`
   }
 
   @media (max-width: 767px) {
-    width: 100%;
+    width: 90%;
     min-width: 230px;
   }
 `;
@@ -44,11 +44,6 @@ const StyledFooter = styled.div`
   p {
     font-size: 12px;
     color: ${({ theme }) => theme.lightGrey};
-  }
-
-  @media (max-width: 767px) {
-    width: 100%;
-    min-width: 230px;
   }
 `;
 
