@@ -5,17 +5,17 @@ import TodoItem from './TodoItem';
 import AddItem from './AddItem';
 
 const StyledTodo = styled.div`
-  width: 100%;
-  max-width: 550px;
+  height: auto;
+  max-width: 750px;
   margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  border: 1px solid ${({ theme }) => theme.lightGrey};
+  border-radius: 20px;
 
   h1 {
-    font-size: 50px;
+    font-size: 40px;
     color: ${({ theme }) => theme.darkestGrey};
     text-align: center;
     padding: 10px;
@@ -23,29 +23,32 @@ const StyledTodo = styled.div`
     margin-top: 0;
     margin-bottom: 40px;
   }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    min-width: 230px;
+  }
 `;
 
 const StyledTodoList = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 40px;
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
 `;
 
 const StyledFooter = styled.div`
-  margin-bottom: 40px;
-  margin-top: 20px;
+  margin: 20px 0 40px;
   text-align: center;
 
   p {
     font-size: 12px;
     color: ${({ theme }) => theme.lightGrey};
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    min-width: 230px;
   }
 `;
 
@@ -92,9 +95,9 @@ const Todo = () => {
     }
   }, [todoItems]);
 
-  const addItem = (item) => {
+  const addItem = (todoText, dueDate, priority) => {
     const todos = todoItems;
-    todos.push({ todo: item, date: new Date().getTime() });
+    todos.push({ todo: todoText, dueDate, priority, date: new Date().getTime() });
     setTodoItems([...todos]);
   };
 
@@ -117,7 +120,7 @@ const Todo = () => {
       <StyledTodoList>
         <ul>
           {todoItems
-            .sort((a, b) => b.date - a.date)
+            .sort((a, b) => (b.date - a.date))
             .map((item) => (
               <TodoItem
                 item={item}
