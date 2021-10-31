@@ -6,13 +6,13 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="Todo__StyledTodo-sc-1du706c-0 jwtxBv wrapper"
+        class="Todo__StyledTodo-sc-1du706c-0 jjZrnb wrapper"
       >
         <h1>
           todos.
         </h1>
         <form
-          class="AddItem__StyledAddItem-i6dyxz-0 FBTuS"
+          class="AddItem__StyledAddItem-i6dyxz-0 bPmwZJ"
         >
           <input
             placeholder="New todo..."
@@ -20,6 +20,42 @@ Object {
             type="text"
             value=""
           />
+          <div>
+            <input
+              required=""
+              type="date"
+              value=""
+            />
+            <select
+              required=""
+            >
+              <option
+                value=""
+              >
+                Select Priority
+              </option>
+              <option
+                value="URGENT"
+              >
+                URGENT
+              </option>
+              <option
+                value="IMPORTANT"
+              >
+                IMPORTANT
+              </option>
+              <option
+                value="SECONDARY"
+              >
+                SECONDARY
+              </option>
+              <option
+                value="PRIMARY"
+              >
+                PRIMARY
+              </option>
+            </select>
+          </div>
           <button
             type="submit"
           >
@@ -41,12 +77,12 @@ Object {
           </button>
         </form>
         <div
-          class="Todo__StyledTodoList-sc-1du706c-1 kdASZR"
+          class="Todo__StyledTodoList-sc-1du706c-1 dsSDCz"
         >
           <ul />
         </div>
         <div
-          class="Todo__StyledFooter-sc-1du706c-2 cmQaKL"
+          class="Todo__StyledFooter-sc-1du706c-2 NrRzi"
         >
           <p>
             A simple Todo app made with React.
@@ -63,13 +99,13 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="Todo__StyledTodo-sc-1du706c-0 jwtxBv wrapper"
+      class="Todo__StyledTodo-sc-1du706c-0 jjZrnb wrapper"
     >
       <h1>
         todos.
       </h1>
       <form
-        class="AddItem__StyledAddItem-i6dyxz-0 FBTuS"
+        class="AddItem__StyledAddItem-i6dyxz-0 bPmwZJ"
       >
         <input
           placeholder="New todo..."
@@ -77,6 +113,42 @@ Object {
           type="text"
           value=""
         />
+        <div>
+          <input
+            required=""
+            type="date"
+            value=""
+          />
+          <select
+            required=""
+          >
+            <option
+              value=""
+            >
+              Select Priority
+            </option>
+            <option
+              value="URGENT"
+            >
+              URGENT
+            </option>
+            <option
+              value="IMPORTANT"
+            >
+              IMPORTANT
+            </option>
+            <option
+              value="SECONDARY"
+            >
+              SECONDARY
+            </option>
+            <option
+              value="PRIMARY"
+            >
+              PRIMARY
+            </option>
+          </select>
+        </div>
         <button
           type="submit"
         >
@@ -98,12 +170,12 @@ Object {
         </button>
       </form>
       <div
-        class="Todo__StyledTodoList-sc-1du706c-1 kdASZR"
+        class="Todo__StyledTodoList-sc-1du706c-1 dsSDCz"
       >
         <ul />
       </div>
       <div
-        class="Todo__StyledFooter-sc-1du706c-2 cmQaKL"
+        class="Todo__StyledFooter-sc-1du706c-2 NrRzi"
       >
         <p>
           A simple Todo app made with React.
