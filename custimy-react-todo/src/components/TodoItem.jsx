@@ -52,12 +52,24 @@ const StyledTodoItem = styled.li`
     border: none;
     outline: none;
     background: ${({ theme }) => theme.backgroundColor};
-    text-decoration: ${({ expiredTodoStyle }) => expiredTodoStyle >= 0 ? 'none' : 'line-through'};;
+    text-decoration: ${({ expirationsDays }) => expirationsDays >= 0 ? 'none' : 'line-through'};;
+  }
+
+  .expiration {
+    display: flex;
+    font-size: 12px;
+    margin: 0 5px;
+    width: 120px;
+    padding: 5px;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    background-color: ${({ theme }) => theme.lightGrey};
   }
 
   .main {
     display: flex;
-    width: 60%;
+    width: 70%;
     border-bottom: 2px solid ${({ theme }) => theme.lightGrey};
 
     &:hover {
@@ -80,7 +92,7 @@ const StyledTodoItem = styled.li`
     }
   }
   .features {
-    width: 40%;
+    width: 30%;
     display: flex;
 
     @media (max-width: 767px) {
@@ -97,24 +109,20 @@ const StyledTodoItem = styled.li`
     cursor: pointer;
   }
 
-  .due-date {
+  .due-date, .priority {
     display: flex;
     font-size: 12px;
-    margin: 0 10px;
-    width: fit-content;
+    margin: 0 5px;
+    width: 120px;
     padding: 15px;
     border-radius: 15px;
-    background-color: ${({ theme }) => theme.OtherRed};
     align-items: center;
     justify-content: center;
   }
+  .due-date {
+    background-color: ${({ theme }) => theme.OtherRed};
+  }
   .priority {
-    display: flex;
-    font-size: 12px;
-    margin: 0 10px;
-    width: fit-content;
-    border-radius: 15px;
-    padding: 15px;
     background-color: ${({ item, theme }) => {
       if (item.priority === 'URGENT') return theme.lightRed
       if (item.priority === 'IMPORTANT') return theme.green
@@ -122,8 +130,6 @@ const StyledTodoItem = styled.li`
       if (item.priority === 'PRIMARY') return theme.lightBlue
       return null
     }};
-    align-items: center;
-    justify-content: center;
   }
 
   @media (max-width: 767px) {
@@ -154,10 +160,23 @@ const TodoItem = ({ deleteItem, item, editItem }) => {
     return Math.ceil((selectedDate.getTime() - today.getTime()) / millsecondPerDay)
   }
 
-  const expiredTodoStyle = daysDiff(item.dueDate)
+  const expirationsDays = daysDiff(item.dueDate)
+
+  const nrOfDaysToExpiration = (expiration) => {
+    switch(true) {
+      case (expiration > 0):
+        return `expires in ${expirationsDays} days`;
+      case (expiration === 0):
+          return 'expires Today';
+      case (expiration < 0):
+        return 'expired task'
+      default:
+        return null;
+    }
+  }
 
   return (
-    <StyledTodoItem item={item} expiredTodoStyle={expiredTodoStyle}>
+    <StyledTodoItem item={item} expirationsDays={expirationsDays}>
       <div className="main">
         <button type="button" onClick={() => deleteItem(item)}>
           <FontAwesomeIcon className="fa-circle" icon={faCircle} />
@@ -169,7 +188,10 @@ const TodoItem = ({ deleteItem, item, editItem }) => {
             setValue(event.target.value);
             editHandler();
           }}
-        />
+        />{
+          expirationsDays <= 0 &&
+        <span className="expiration">{nrOfDaysToExpiration(expirationsDays)}</span>
+        }
       </div>
       <div className="features">
         <span className="due-date">{item.dueDate.split('-').reverse().join('/')}</span>
