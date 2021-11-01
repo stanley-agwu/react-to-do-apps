@@ -6,13 +6,13 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="Todo__StyledTodo-sc-1du706c-0 jjZrnb wrapper"
+        class="styled__StyledTodo-lucpj2-2 dbtvUP wrapper"
       >
         <h1>
           todos.
         </h1>
         <form
-          class="AddItem__StyledAddItem-i6dyxz-0 bPmwZJ"
+          class="styled__StyledAddItem-lucpj2-0 jtAjRE"
         >
           <input
             placeholder="New todo..."
@@ -77,12 +77,12 @@ Object {
           </button>
         </form>
         <div
-          class="Todo__StyledTodoList-sc-1du706c-1 dsSDCz"
+          class="styled__StyledTodoList-lucpj2-3 zklyv"
         >
           <ul />
         </div>
         <div
-          class="Todo__StyledFooter-sc-1du706c-2 NrRzi"
+          class="styled__StyledFooter-lucpj2-4 gMOygU"
         >
           <p>
             A simple Todo app made with React.
@@ -99,13 +99,13 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="Todo__StyledTodo-sc-1du706c-0 jjZrnb wrapper"
+      class="styled__StyledTodo-lucpj2-2 dbtvUP wrapper"
     >
       <h1>
         todos.
       </h1>
       <form
-        class="AddItem__StyledAddItem-i6dyxz-0 bPmwZJ"
+        class="styled__StyledAddItem-lucpj2-0 jtAjRE"
       >
         <input
           placeholder="New todo..."
@@ -170,12 +170,12 @@ Object {
         </button>
       </form>
       <div
-        class="Todo__StyledTodoList-sc-1du706c-1 dsSDCz"
+        class="styled__StyledTodoList-lucpj2-3 zklyv"
       >
         <ul />
       </div>
       <div
-        class="Todo__StyledFooter-sc-1du706c-2 NrRzi"
+        class="styled__StyledFooter-lucpj2-4 gMOygU"
       >
         <p>
           A simple Todo app made with React.
