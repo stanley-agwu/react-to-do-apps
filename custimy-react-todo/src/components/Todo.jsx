@@ -1,51 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components/macro';
 
 import TodoItem from './TodoItem';
 import AddItem from './AddItem';
-
-const StyledTodo = styled.div`
-  height: auto;
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 20px;
-
-  h1 {
-    font-size: 40px;
-    color: ${({ theme }) => theme.darkestGrey};
-    text-align: center;
-    padding: 10px;
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    margin-top: 0;
-    margin-bottom: 40px;
-  }
-
-  @media (max-width: 767px) {
-    width: 90%;
-    min-width: 230px;
-  }
-`;
-
-const StyledTodoList = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 40px;
-`;
-
-const StyledFooter = styled.div`
-  margin: 20px 0 40px;
-  text-align: center;
-
-  p {
-    font-size: 12px;
-    color: ${({ theme }) => theme.lightGrey};
-  }
-`;
+import { StyledTodo, StyledTodoList, StyledFooter } from './styled';
 
 const Todo = () => {
   const [todoItems, setTodoItems] = useState([]);
